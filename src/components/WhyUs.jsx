@@ -1,7 +1,14 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import './WhyUs.css';
 
 const WhyUs = () => {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
   // Diese 5 Gründe stammen direkt aus dem Instagram-Post Screenshot
   const reasons = [
     {
@@ -71,19 +78,47 @@ const WhyUs = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {reasons.map((reason, index) => (
-            <motion.div
-              key={reason.number}
-              className={`reason-item ${index % 2 === 0 ? 'reason-left' : 'reason-right'}`}
-              variants={cardVariants}
-            >
-              <div className="reason-number-badge">{index + 1}</div>
-              <div className="reason-content">
-                <h3 className="reason-title">{reason.title}</h3>
-                <p className="reason-desc">{reason.description}</p>
-              </div>
-            </motion.div>
-          ))}
+          {reasons.map((reason, index) => {
+            const isExpanded = expandedIndex === index;
+            return (
+              <motion.div
+                key={reason.number}
+                className={`reason-item ${index % 2 === 0 ? 'reason-left' : 'reason-right'}`}
+                variants={cardVariants}
+              >
+                <div className="reason-number-badge">{index + 1}</div>
+                <div 
+                  className={`reason-content ${isExpanded ? 'expanded' : ''}`}
+                  onClick={() => toggleExpand(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyPress={(e) => e.key === 'Enter' && toggleExpand(index)}
+                >
+                  <div className="reason-header">
+                    <h3 className="reason-title">{reason.title}</h3>
+                    <ChevronDown 
+                      className={`reason-chevron ${isExpanded ? 'rotated' : ''}`}
+                      size={20}
+                    />
+                  </div>
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.p 
+                        className="reason-desc"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {reason.description}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                  <p className="reason-desc desktop-only">{reason.description}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.p

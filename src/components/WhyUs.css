@@ -90,6 +90,8 @@
   border-radius: var(--radius-md);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition);
+  cursor: default; /* Kein Pointer auf Desktop */
+  pointer-events: none; /* Nicht klickbar auf Desktop */
 }
 
 .reason-content:hover {
@@ -110,6 +112,29 @@
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
   margin: 0;
+}
+
+/* Accordion für Mobile */
+.reason-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.reason-chevron {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  display: none; /* Versteckt auf Desktop */
+}
+
+.reason-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.desktop-only {
+  display: block; /* Sichtbar auf Desktop */
 }
 
 .why-us-footer {
@@ -148,7 +173,38 @@
   }
 
   .reason-content {
-    padding: 24px;
+    padding: 20px;
+    cursor: pointer; /* Pointer nur auf Mobile */
+    pointer-events: auto; /* Klickbar nur auf Mobile */
+  }
+
+  .reason-content:active {
+    transform: scale(0.98);
+  }
+
+  .reason-title {
+    font-size: 18px;
+    margin-bottom: 0; /* Kein Margin wenn collapsed */
+  }
+
+  /* Chevron auf Mobile anzeigen */
+  .reason-chevron {
+    display: block;
+  }
+
+  /* Desktop-Text verstecken, nur Accordion-Text anzeigen */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Accordion-Text Styling */
+  .reason-content .reason-desc:not(.desktop-only) {
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .reason-content.expanded .reason-title {
+    margin-bottom: 12px;
   }
 }
 
