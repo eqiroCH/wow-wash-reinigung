@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Home, Building2, Sparkles, MapPin, ImageIcon, Instagram } from 'lucide-react';
+import { Home, Building2, MapPin, ImageIcon, Instagram, Droplets, Wrench, Building, Sparkles } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -9,9 +9,12 @@ import './About.css';
 
 const About = () => {
   const cards = [
-    { icon: Home, label: 'Wohnungen', delay: 0 },
-    { icon: Building2, label: 'Büros', delay: 0.2 },
-    { icon: Sparkles, label: 'Spezial', delay: 0.4 },
+    { icon: Building2, label: 'Büro', delay: 0 },
+    { icon: Home, label: 'Wohnung', delay: 0.1 },
+    { icon: Droplets, label: 'Fenster', delay: 0.2 },
+    { icon: Wrench, label: 'Hochdruck', delay: 0.3 },
+    { icon: Building, label: 'Fassaden', delay: 0.4 },
+    { icon: Sparkles, label: 'Unterhalt', delay: 0.5 },
   ];
 
   // Neue Galerie-Bilder

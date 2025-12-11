@@ -61,7 +61,6 @@ const Contact = () => {
     { value: 'hochdruck', label: 'Hochdruckreinigung' },
     { value: 'fassade', label: 'Fassadenreinigung' },
     { value: 'unterhalt', label: 'Unterhaltsreinigung' },
-    { value: 'umzug', label: 'Umzugreinigung' },
     { value: 'andere', label: 'Andere' },
   ];
 

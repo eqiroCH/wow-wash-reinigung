@@ -45,7 +45,7 @@ const Hero = () => {
           
           <p className="hero-subtitle">
             Ihr Partner für professionelle Reinigung in Zürich und Umgebung.<br />
-            Büro | Wohnung | Fenster | Hochdruck | Fassaden | Unterhalt | Umzug<br />
+            Büro | Wohnung | Fenster | Hochdruck | Fassaden | Unterhalt<br />
             Rund um die Uhr verfügbar.
           </p>
 
