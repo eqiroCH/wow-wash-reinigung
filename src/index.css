@@ -1,2 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
 @import './styles/variables.css';
+
+/* Elfsight Floating Badge verstecken */
+.google-rating-badge,
+.gr-main,
+.gr-score,
+.gr-score-inner,
+.gr-score-number,
+.gr-score-star {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
