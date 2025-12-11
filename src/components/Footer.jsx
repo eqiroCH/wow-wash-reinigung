@@ -13,11 +13,14 @@ const Footer = () => {
     { href: '#contact', label: 'Kontakt' },
   ];
 
-  // Nur verifizierte Services
+  // Echte Dienstleistungen
   const serviceLinks = [
-    { href: '#services', label: 'Wohnungen' },
-    { href: '#services', label: 'Büros' },
-    { href: '#services', label: 'Spezialreinigung' },
+    { href: '#services', label: 'Büroreinigung' },
+    { href: '#services', label: 'Wohnungsreinigung' },
+    { href: '#services', label: 'Fensterreinigung' },
+    { href: '#services', label: 'Hochdruckreinigung' },
+    { href: '#services', label: 'Fassadenreinigung' },
+    { href: '#services', label: 'Unterhaltsreinigung' },
   ];
 
   return (
@@ -31,6 +34,10 @@ const Footer = () => {
             </a>
             <p className="footer-desc">
               Ihr Partner für professionelle Reinigung in Zürich und Umgebung.
+              <br />
+              <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+                ⭐ 5.0 Sterne | 22 Google-Rezensionen
+              </span>
             </p>
             <div className="footer-social">
               <a
@@ -84,7 +91,7 @@ const Footer = () => {
               8820 Wädenswil
             </p>
             <p>
-              <a href="tel:+41762491012">+41 076 249 10 12</a>
+              <a href="tel:+41762491012">+41 76 249 10 12</a>
             </p>
             <p>
               <a href="mailto:info@wowwash.ch">info@wowwash.ch</a>

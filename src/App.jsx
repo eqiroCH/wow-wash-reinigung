@@ -1,4 +1,4 @@
-import { Navbar, Hero, Services, About, WhyUs, Contact, Footer } from './components';
+import { Navbar, Hero, Services, About, WhyUs, Reviews, Contact, Footer } from './components';
 import './App.css';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Services />
         <About />
         <WhyUs />
+        <Reviews />
         <Contact />
       </main>
       <Footer />

@@ -92,8 +92,8 @@ const WhyUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          📍 Reinigungsservice mit Herz – lokal, professionell, persönlich.<br />
-          📞 Melde dich jetzt für eine unverbindliche Beratung!
+          Reinigungsservice mit Herz – lokal, professionell, persönlich.<br />
+          Melde dich jetzt für eine unverbindliche Beratung!
         </motion.p>
       </div>
     </section>

@@ -52,3 +52,4 @@ const Logo = ({ size = 40, className = '' }) => {
 
 export default Logo;
 
+

@@ -1,30 +1,45 @@
 import { motion } from 'framer-motion';
-import { Home, Building2, Sparkles } from 'lucide-react';
+import { Home, Building2, Sparkles, Droplets, Building, Wrench } from 'lucide-react';
 import './Services.css';
 
 const Services = () => {
-  // NUR verifizierte Services aus Instagram Bio
+  // Echte Dienstleistungen aus Google Business und Flyern
   const services = [
     {
-      icon: Home,
-      title: 'Wohnungen',
-      description: 'Professionelle Reinigung für Ihr Zuhause.',
-      featured: false,
-      serviceValue: 'wohnung',
-    },
-    {
       icon: Building2,
-      title: 'Büros',
+      title: 'Büroreinigung',
       description: 'Saubere Arbeitsumgebung für Ihr Unternehmen.',
-      featured: true,
       serviceValue: 'buero',
     },
     {
+      icon: Home,
+      title: 'Wohnungsreinigung',
+      description: 'Professionelle Reinigung für Ihr Zuhause.',
+      serviceValue: 'wohnung',
+    },
+    {
+      icon: Droplets,
+      title: 'Fensterreinigung',
+      description: 'Glänzende Fenster und Glasflächen.',
+      serviceValue: 'fenster',
+    },
+    {
+      icon: Wrench,
+      title: 'Hochdruckreinigung',
+      description: 'Gründliche Reinigung mit Hochdruck.',
+      serviceValue: 'hochdruck',
+    },
+    {
+      icon: Building,
+      title: 'Fassadenreinigung',
+      description: 'Professionelle Reinigung von Gebäudefassaden.',
+      serviceValue: 'fassade',
+    },
+    {
       icon: Sparkles,
-      title: 'Spezialreinigung',
-      description: 'Individuelle Reinigungslösungen für besondere Anforderungen.',
-      featured: false,
-      serviceValue: 'spezial',
+      title: 'Unterhaltsreinigung',
+      description: 'Regelmässige Reinigung für langfristige Sauberkeit.',
+      serviceValue: 'unterhalt',
     },
   ];
 
@@ -85,7 +100,7 @@ const Services = () => {
           {services.map((service) => (
             <motion.div
               key={service.title}
-              className={`service-card ${service.featured ? 'featured' : ''}`}
+              className="service-card"
               variants={cardVariants}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               onClick={() => handleServiceClick(service.serviceValue)}

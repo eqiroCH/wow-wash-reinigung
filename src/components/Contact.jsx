@@ -36,14 +36,14 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'Telefon',
-      value: '+41 076 249 10 12',
+      value: '+41 76 249 10 12',
       href: 'tel:+41762491012',
     },
     {
       icon: MapPin,
-      label: 'Adresse',
+      label: 'Standort',
       value: 'Tobelrainstrasse 10, 8820 Wädenswil',
-      href: null,
+      href: 'https://maps.google.com/?q=Tobelrainstrasse+10,+8820+Wädenswil',
     },
     {
       icon: Instagram,
@@ -53,11 +53,15 @@ const Contact = () => {
     },
   ];
 
-  // Nur verifizierte Services
+  // Echte Dienstleistungen aus Google Business
   const services = [
-    { value: 'wohnung', label: 'Wohnungen' },
-    { value: 'buero', label: 'Büros' },
-    { value: 'spezial', label: 'Spezialreinigung' },
+    { value: 'buero', label: 'Büroreinigung' },
+    { value: 'wohnung', label: 'Wohnungsreinigung' },
+    { value: 'fenster', label: 'Fensterreinigung' },
+    { value: 'hochdruck', label: 'Hochdruckreinigung' },
+    { value: 'fassade', label: 'Fassadenreinigung' },
+    { value: 'unterhalt', label: 'Unterhaltsreinigung' },
+    { value: 'umzug', label: 'Umzugreinigung' },
     { value: 'andere', label: 'Andere' },
   ];
 

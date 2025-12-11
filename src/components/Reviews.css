@@ -1,0 +1,94 @@
+.reviews {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.reviews-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.elfsight-widget-container {
+  width: 100%;
+  min-height: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.elfsight-placeholder {
+  padding: 80px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--gray-100), var(--gray-50));
+  border: 2px dashed var(--gray-300);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+}
+
+.elfsight-placeholder p {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+}
+
+.elfsight-note {
+  font-size: 14px !important;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.elfsight-instructions {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.elfsight-instructions strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+
+.elfsight-instructions ol {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-light);
+}
+
+.elfsight-instructions li {
+  margin-bottom: 8px;
+}
+
+.elfsight-instructions code {
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--primary);
+}
+
+/* Elfsight Widget Styling (wird angewendet, sobald Widget geladen ist) */
+.elfsight-widget-container :global(.elfsight-app) {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .reviews {
+    padding: 80px 0;
+  }
+
+  .elfsight-placeholder {
+    padding: 60px 24px;
+  }
+}
+

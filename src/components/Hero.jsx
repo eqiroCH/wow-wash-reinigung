@@ -1,7 +1,19 @@
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, ArrowRight, Sparkles } from 'lucide-react';
 import './Hero.css';
 import Logo from './Logo';
+
+// Professionelle Sparkle-Komponente
+const SparkleIcon = ({ className, size = 20 }) => (
+  <motion.div
+    className={`sparkle-icon ${className}`}
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay: 0.8 }}
+  >
+    <Sparkles size={size} />
+  </motion.div>
+);
 
 const Hero = () => {
   return (
@@ -21,7 +33,10 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="hero-badge">✨ Professionelle Reinigung in Zürich</span>
+          <span className="hero-badge">
+            <Sparkles size={16} className="badge-sparkle" />
+            Professionelle Reinigung in Zürich
+          </span>
           
           <h1 className="hero-title">
             Glanz und Sauberkeit,
@@ -29,9 +44,9 @@ const Hero = () => {
           </h1>
           
           <p className="hero-subtitle">
-            Ihr Partner für professionelle Reinigung. 
-            Wohnungen | Büros | Spezialreinigung.
-            Qualität, der Sie vertrauen können.
+            Ihr Partner für professionelle Reinigung in Zürich und Umgebung. 
+            Büroreinigung | Wohnungsreinigung | Fensterreinigung | Hochdruckreinigung.
+            Rund um die Uhr verfügbar.
           </p>
 
           <div className="hero-cta">
@@ -41,7 +56,7 @@ const Hero = () => {
             </a>
             <a href="tel:+41762491012" className="btn btn-secondary">
               <Phone size={20} />
-              <span>+41 076 249 10 12</span>
+              <span>+41 76 249 10 12</span>
             </a>
           </div>
         </motion.div>
@@ -54,9 +69,10 @@ const Hero = () => {
         >
           <div className="hero-logo-container">
             <Logo size={350} className="hero-logo" />
-            <span className="sparkle sparkle-1">✨</span>
-            <span className="sparkle sparkle-2">✨</span>
-            <span className="sparkle sparkle-3">⭐</span>
+            {/* Professionelle animierte Sparkles */}
+            <SparkleIcon className="sparkle-1" size={24} />
+            <SparkleIcon className="sparkle-2" size={18} />
+            <SparkleIcon className="sparkle-3" size={20} />
           </div>
         </motion.div>
       </div>
