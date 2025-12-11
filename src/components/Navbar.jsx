@@ -7,7 +7,7 @@ import Logo from './Logo';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [googleRating, setGoogleRating] = useState(5.0);
+  const [googleRating, setGoogleRating] = useState(null);
 
   // Lade Bewertung vom Elfsight Widget (wenn verfügbar)
   useEffect(() => {
@@ -93,7 +93,7 @@ const Navbar = () => {
                   <button
                     onClick={handleReviewsClick}
                     className="nav-reviews-badge"
-                    aria-label={`Bewertungen - ${googleRating.toFixed(1)} Sterne`}
+                    aria-label={`Bewertungen${googleRating !== null ? ` - ${googleRating.toFixed(1)} Sterne` : ''}`}
                   >
                     {/* Google G Logo */}
                     <div className="nav-google-logo">
@@ -105,7 +105,11 @@ const Navbar = () => {
                       </svg>
                     </div>
                     <Star size={16} fill="#F2D541" stroke="#D4B82E" strokeWidth="0.5" />
-                    <span className="nav-rating-number">{googleRating.toFixed(1)}</span>
+                    {googleRating !== null ? (
+                      <span className="nav-rating-number">{googleRating.toFixed(1)}</span>
+                    ) : (
+                      <span className="nav-rating-number">-</span>
+                    )}
                   </button>
                 </li>
               );

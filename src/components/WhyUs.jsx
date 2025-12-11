@@ -65,22 +65,23 @@ const WhyUs = () => {
         </motion.div>
 
         <motion.div
-          className="reasons-grid"
+          className="reasons-timeline"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {reasons.map((reason) => (
+          {reasons.map((reason, index) => (
             <motion.div
               key={reason.number}
-              className="reason-card"
+              className={`reason-item ${index % 2 === 0 ? 'reason-left' : 'reason-right'}`}
               variants={cardVariants}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
             >
-              <div className="reason-number">{reason.number}</div>
-              <h3 className="reason-title">{reason.title}</h3>
-              <p className="reason-desc">{reason.description}</p>
+              <div className="reason-number-badge">{index + 1}</div>
+              <div className="reason-content">
+                <h3 className="reason-title">{reason.title}</h3>
+                <p className="reason-desc">{reason.description}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

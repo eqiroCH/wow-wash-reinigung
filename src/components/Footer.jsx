@@ -34,10 +34,6 @@ const Footer = () => {
             </a>
             <p className="footer-desc">
               Ihr Partner für professionelle Reinigung in Zürich und Umgebung.
-              <br />
-              <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                ⭐ 5.0 Sterne | 22 Google-Rezensionen
-              </span>
             </p>
             <div className="footer-social">
               <a
