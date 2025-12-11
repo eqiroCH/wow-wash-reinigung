@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
 import { Home, Building2, Sparkles, MapPin, ImageIcon, Instagram } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import './About.css';
 
 const About = () => {
@@ -129,7 +134,8 @@ const About = () => {
           <h3 className="about-gallery-title">Einblicke in unsere Arbeit</h3>
           <p className="about-gallery-subtitle">Folgen Sie uns auf Instagram für mehr</p>
           
-          <div className="about-gallery-grid">
+          {/* Desktop: Grid */}
+          <div className="about-gallery-grid desktop-gallery">
             {galleryImages.map((img, index) => (
               <motion.div
                 key={img.id}
@@ -155,6 +161,31 @@ const About = () => {
                 )}
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile: Swiper */}
+          <div className="about-gallery-swiper mobile-gallery">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={16}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              className="gallery-swiper"
+            >
+              {galleryImages.filter(img => !img.placeholder).map((img) => (
+                <SwiperSlide key={img.id}>
+                  <div className="about-gallery-item">
+                    <img 
+                      src={img.src} 
+                      alt={img.alt} 
+                      loading="lazy"
+                      className={img.position ? `gallery-img-${img.position}` : ''}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
           
           <div className="about-social-links">
