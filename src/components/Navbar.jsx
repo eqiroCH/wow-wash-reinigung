@@ -26,16 +26,42 @@ const Navbar = () => {
     { href: '#contact', label: 'Kontakt', isCta: true },
   ];
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (e, href) => {
     setIsMobileMenuOpen(false);
+    
+    // Optimiertes Smooth Scrolling
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   const handleReviewsClick = (e) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
     const reviewsSection = document.getElementById('reviews');
+    
     if (reviewsSection) {
-      reviewsSection.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 100;
+      const elementPosition = reviewsSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -84,7 +110,7 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   className={`nav-link ${link.isCta ? 'nav-cta' : ''}`}
-                  onClick={handleLinkClick}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                 >
                   {link.label}
                 </a>
