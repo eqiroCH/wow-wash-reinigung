@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Star } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 import Logo from './Logo';
@@ -7,36 +7,6 @@ import Logo from './Logo';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [googleRating, setGoogleRating] = useState(null);
-
-  // Lade Bewertung vom Elfsight Widget (wenn verfügbar)
-  useEffect(() => {
-    const checkElfsightRating = () => {
-      // Versuche die Bewertung vom Elfsight Widget zu lesen
-      const ratingElement = document.querySelector('.elfsight-app-39cf0151-a59d-4276-a62a-89f9452eb9c4');
-      if (ratingElement) {
-        // Warte bis Elfsight geladen ist
-        const interval = setInterval(() => {
-          const ratingText = document.querySelector('.elfsight-app-39cf0151-a59d-4276-a62a-89f9452eb9c4 [class*="rating"]');
-          if (ratingText) {
-            const ratingMatch = ratingText.textContent.match(/(\d+\.?\d*)/);
-            if (ratingMatch) {
-              setGoogleRating(parseFloat(ratingMatch[1]));
-              clearInterval(interval);
-            }
-          }
-        }, 500);
-        
-        // Timeout nach 5 Sekunden
-        setTimeout(() => clearInterval(interval), 5000);
-      }
-    };
-
-    // Prüfe nach 2 Sekunden (wenn Elfsight geladen sein könnte)
-    const timeout = setTimeout(checkElfsightRating, 2000);
-    
-    return () => clearTimeout(timeout);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +43,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#home" className="nav-logo">
-          <Logo size={40} />
+          <Logo size={50} />
           <span className="logo-name">WOW WASH</span>
         </a>
 
@@ -93,9 +63,9 @@ const Navbar = () => {
                   <button
                     onClick={handleReviewsClick}
                     className="nav-reviews-badge"
-                    aria-label={`Bewertungen${googleRating !== null ? ` - ${googleRating.toFixed(1)} Sterne` : ''}`}
+                    aria-label="Bewertungen"
                   >
-                    {/* Google G Logo */}
+                    {/* Google G Logo - nur Desktop */}
                     <div className="nav-google-logo">
                       <svg viewBox="0 0 24 24" width="18" height="18">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -104,12 +74,7 @@ const Navbar = () => {
                         <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                       </svg>
                     </div>
-                    <Star size={16} fill="#F2D541" stroke="#D4B82E" strokeWidth="0.5" />
-                    {googleRating !== null ? (
-                      <span className="nav-rating-number">{googleRating.toFixed(1)}</span>
-                    ) : (
-                      <span className="nav-rating-number">-</span>
-                    )}
+                    <span className="nav-reviews-text">Bewertung</span>
                   </button>
                 </li>
               );

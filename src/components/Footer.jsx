@@ -29,7 +29,9 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand">
             <a href="#home" className="footer-logo">
-              <Logo size={36} />
+              <div className="footer-logo-circle">
+                <Logo size={62} />
+              </div>
               <span>WOW WASH</span>
             </a>
             <p className="footer-desc">

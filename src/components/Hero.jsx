@@ -68,7 +68,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="hero-logo-container">
-            <Logo size={350} className="hero-logo" />
+            <Logo size={460} className="hero-logo" />
             {/* Professionelle animierte Sparkles */}
             <SparkleIcon className="sparkle-1" size={24} />
             <SparkleIcon className="sparkle-2" size={18} />

@@ -30,14 +30,37 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  text-decoration: none;
+  transition: var(--transition);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-logo:hover {
+  transform: translateY(-1px);
+}
+
+.nav-logo img {
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.nav-logo:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
 }
 
 .logo-name {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 21px;
   color: var(--dark);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
+  transition: var(--transition);
+}
+
+.nav-logo:hover .logo-name {
+  color: var(--primary-dark);
 }
 
 .nav-menu {
@@ -83,8 +106,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 7px 12px;
+  gap: 8px;
+  padding: 7px 14px;
   background: var(--white);
   border: 1.5px solid var(--gray-200);
   border-radius: var(--radius-md);
@@ -116,13 +139,12 @@
   display: block;
 }
 
-.nav-rating-number {
+.nav-reviews-text {
   font-size: 15px;
-  font-weight: 600;
-  color: var(--dark);
+  font-weight: 500;
+  color: var(--text);
   line-height: 1;
-  letter-spacing: -0.3px;
-  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.2px;
 }
 
 .nav-toggle {
@@ -180,6 +202,29 @@
   .nav-reviews-badge {
     width: 100%;
     justify-content: center;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 14px;
+    gap: 0;
+  }
+
+  .nav-reviews-badge:hover {
+    background: var(--gray-100) !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .nav-google-logo {
+    display: none;
+  }
+
+  .nav-reviews-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    padding: 0;
   }
 
   .nav-toggle {

@@ -41,3 +41,5 @@ In Produktion solltest du:
 - Die `.env` Datei mit dem API Key sicher speichern
 - CORS richtig konfigurieren für deine Domain
 
+
+
