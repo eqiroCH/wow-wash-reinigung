@@ -57,7 +57,10 @@
 
 .about-image-container {
   position: relative;
-  height: 500px;
+  height: 520px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .about-shape {
@@ -93,56 +96,93 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  padding: 16px 20px; /* Kleiner für 6 Karten */
+  padding: 14px 18px;
   background: var(--white);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   animation: cardFloat 4s ease-in-out infinite;
 }
 
-/* Positionen für 6 Karten - Mix aus innen und außen */
-/* Karte 1: Büro - oben links, mehr nach rechts */
+/* 8 Karten gleichmäßig im Kreis um die Mitte (Hauswartung) */
+/* Oben */
 .about-card-1 {
-  top: 12%;
-  left: 20%; /* Mehr nach rechts */
+  top: 2%;
+  left: 42%;
   animation-delay: 0s;
 }
 
-/* Karte 2: Wohnung - oben rechts, mehr nach links */
+/* Oben rechts */
 .about-card-2 {
-  top: 8%;
-  right: 23%; /* Mehr nach links */
-  animation-delay: -0.5s;
+  top: 14%;
+  right: 4%;
+  left: auto;
+  animation-delay: -0.3s;
 }
 
-/* Karte 3: Fenster - links */
+/* Rechts – Fenster, in der türkisen Form */
 .about-card-3 {
-  top: 42%;
-  left: 8%;
-  animation-delay: -1s;
+  top: 38%;
+  right: 18%;
+  left: auto;
+  z-index: 2;
+  animation-delay: -0.6s;
 }
 
-/* Karte 4: Hochdruck - rechts, höher */
+/* Unten rechts */
 .about-card-4 {
-  top: 38%; /* Höher */
-  right: 10%;
+  bottom: 14%;
+  right: 6%;
+  animation-delay: -0.9s;
+}
+
+/* Unten */
+.about-card-5 {
+  bottom: 2%;
+  left: 42%;
+  animation-delay: -1.2s;
+}
+
+/* Unten links – Unterhalt, in der türkisen Form */
+.about-card-6 {
+  bottom: 22%;
+  left: 18%;
+  z-index: 2;
   animation-delay: -1.5s;
 }
 
-/* Karte 5: Unten links - INNERHALB der Form */
-.about-card-5 {
-  bottom: 18%;
-  left: 22%;
-  z-index: 2; /* Über der Form */
-  animation-delay: -2s;
+/* Links */
+.about-card-7 {
+  top: 40%;
+  left: 2%;
+  animation-delay: -1.8s;
 }
 
-/* Karte 6: Unten rechts - INNERHALB der Form */
-.about-card-6 {
-  bottom: 25%;
-  right: 25%;
-  z-index: 2; /* Über der Form */
-  animation-delay: -2.5s;
+/* Oben links */
+.about-card-8 {
+  top: 14%;
+  left: 4%;
+  animation-delay: -2.1s;
+}
+
+/* Hauswartung – oben links in der türkisen Form */
+.about-card-9 {
+  top: 34%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 18px 22px;
+  animation: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-card-9 .about-card-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.about-card-9 span {
+  font-size: 12px;
+  font-weight: 600;
 }
 
 @keyframes cardFloat {

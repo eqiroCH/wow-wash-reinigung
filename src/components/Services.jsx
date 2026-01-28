@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Home, Building2, Sparkles, Droplets, Building, Wrench } from 'lucide-react';
+import { Home, Building2, Sparkles, Droplets, Building, Wrench, Layers, Sun, KeyRound } from 'lucide-react';
 import './Services.css';
 
 const Services = () => {
@@ -40,6 +40,24 @@ const Services = () => {
       title: 'Unterhaltsreinigung',
       description: 'Regelmässige Reinigung für langfristige Sauberkeit.',
       serviceValue: 'unterhalt',
+    },
+    {
+      icon: Layers,
+      title: 'Bodengrundreinigung',
+      description: 'Tiefenreinigung und Vorbereitung von Böden.',
+      serviceValue: 'bodengrund',
+    },
+    {
+      icon: Sun,
+      title: 'Polierung',
+      description: 'Professionelle Politur für glänzende Oberflächen.',
+      serviceValue: 'polierung',
+    },
+    {
+      icon: KeyRound,
+      title: 'Hauswartung',
+      description: 'Betreuung und Instandhaltung Ihrer Liegenschaft.',
+      serviceValue: 'hauswartung',
     },
   ];
 

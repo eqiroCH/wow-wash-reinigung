@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Home, Building2, MapPin, ImageIcon, Droplets, Wrench, Building, Sparkles } from 'lucide-react';
+import { Home, Building2, MapPin, ImageIcon, Droplets, Wrench, Building, Sparkles, Layers, Sun, KeyRound } from 'lucide-react';
 
 // WhatsApp Icon Component
 const WhatsAppIcon = ({ size = 24 }) => (
@@ -22,6 +22,9 @@ const About = () => {
     { icon: Wrench, label: 'Hochdruck', delay: 0.3 },
     { icon: Building, label: 'Fassaden', delay: 0.4 },
     { icon: Sparkles, label: 'Unterhalt', delay: 0.5 },
+    { icon: Layers, label: 'Bodengrund', delay: 0.55 },
+    { icon: Sun, label: 'Polierung', delay: 0.6 },
+    { icon: KeyRound, label: 'Hauswartung', delay: 0.65 },
   ];
 
   // Neue Galerie-Bilder
@@ -79,7 +82,7 @@ const About = () => {
               WOW WASH Reinigung ist Ihr Reinigungsdienst in Zürich und Umgebung.
               Unter der Leitung von Hassan Alkinani bieten wir professionelle Reinigungsservices 
               rund um die Uhr. Wir sind spezialisiert auf Büro-, Wohnungs-, Fenster-, 
-              Hochdruck-, Fassaden- und Unterhaltsreinigung.
+              Hochdruck-, Fassaden-, Unterhaltsreinigung, Bodengrundreinigung, Polierung und Hauswartung.
             </p>
 
             {/* Standort mit Karte */}

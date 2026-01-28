@@ -68,6 +68,9 @@ const Contact = () => {
     { value: 'hochdruck', label: 'Hochdruckreinigung' },
     { value: 'fassade', label: 'Fassadenreinigung' },
     { value: 'unterhalt', label: 'Unterhaltsreinigung' },
+    { value: 'bodengrund', label: 'Bodengrundreinigung' },
+    { value: 'polierung', label: 'Polierung' },
+    { value: 'hauswartung', label: 'Hauswartung' },
     { value: 'andere', label: 'Andere' },
   ];
 
