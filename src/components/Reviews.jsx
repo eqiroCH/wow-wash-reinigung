@@ -40,7 +40,7 @@ const Reviews = () => {
           {/* Elfsight Widget Container */}
           <div className="elfsight-widget-container">
             {/* Elfsight Google Reviews Widget */}
-            <div className="elfsight-app-39cf0151-a59d-4276-a62a-89f9452eb9c4" data-elfsight-app-lazy></div>
+            <div className="elfsight-app-4757c14c-3ac9-4cf0-9bb8-3d889572efc5" data-elfsight-app-lazy></div>
           </div>
         </motion.div>
       </div>

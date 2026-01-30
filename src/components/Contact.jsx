@@ -84,23 +84,33 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitError(null);
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitError('Kontaktformular ist noch nicht eingerichtet. Bitte schreiben Sie uns direkt an info@wowwash.ch oder rufen Sie an.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service || 'Nicht angegeben';
+
     try {
-      // Send to Formspree
-      const response = await fetch('https://formspree.io/f/xwpkvpqr', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name,
+          access_key: accessKey,
+          from_name: formData.name,
           email: formData.email,
-          phone: formData.phone || 'Nicht angegeben',
-          service: services.find(s => s.value === formData.service)?.label || 'Nicht angegeben',
+          subject: `Kontaktanfrage: ${serviceLabel}`,
           message: formData.message,
+          phone: formData.phone || 'Nicht angegeben',
+          service: serviceLabel,
         }),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
         setIsSubmitted(true);
         setFormData({
           name: '',
@@ -110,7 +120,7 @@ const Contact = () => {
           message: '',
         });
       } else {
-        throw new Error('Formular konnte nicht gesendet werden');
+        throw new Error(data.message || 'Formular konnte nicht gesendet werden');
       }
     } catch (error) {
       setSubmitError('Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per Telefon.');
