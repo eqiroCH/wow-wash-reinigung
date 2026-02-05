@@ -1,20 +1,18 @@
-import { Navbar, Hero, Services, About, WhyUs, Reviews, Contact, Footer } from './components';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HomePage, Impressum, AGB } from './pages';
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <WhyUs />
-        <Reviews />
-        <Contact />
-      </main>
-      <Footer />
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/agb" element={<AGB />} />
+        </Routes>
       </div>
+    </Router>
   );
 }
 

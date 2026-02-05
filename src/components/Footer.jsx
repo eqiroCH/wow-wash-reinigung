@@ -1,4 +1,5 @@
 import { Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './Logo';
 
@@ -6,21 +7,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#services', label: 'Dienstleistungen' },
-    { href: '#about', label: 'Über uns' },
-    { href: '#why-us', label: 'Warum wir' },
-    { href: '#contact', label: 'Kontakt' },
+    { href: '/#home', label: 'Home' },
+    { href: '/#services', label: 'Dienstleistungen' },
+    { href: '/#about', label: 'Über uns' },
+    { href: '/#why-us', label: 'Warum wir' },
+    { href: '/#contact', label: 'Kontakt' },
   ];
 
   // Echte Dienstleistungen
   const serviceLinks = [
-    { href: '#services', label: 'Büroreinigung' },
-    { href: '#services', label: 'Wohnungsreinigung' },
-    { href: '#services', label: 'Fensterreinigung' },
-    { href: '#services', label: 'Hochdruckreinigung' },
-    { href: '#services', label: 'Fassadenreinigung' },
-    { href: '#services', label: 'Unterhaltsreinigung' },
+    { href: '/#services', label: 'Büroreinigung' },
+    { href: '/#services', label: 'Wohnungsreinigung' },
+    { href: '/#services', label: 'Fensterreinigung' },
+    { href: '/#services', label: 'Hochdruckreinigung' },
+    { href: '/#services', label: 'Fassadenreinigung' },
+    { href: '/#services', label: 'Unterhaltsreinigung' },
   ];
 
   return (
@@ -28,12 +29,12 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#home" className="footer-logo">
+            <Link to="/" className="footer-logo">
               <div className="footer-logo-circle">
                 <Logo size={62} />
               </div>
               <span>WOW WASH</span>
-            </a>
+            </Link>
             <p className="footer-desc">
               Ihr Partner für professionelle Reinigung in Zürich und Umgebung.
             </p>
@@ -98,7 +99,14 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {currentYear} WOW WASH Reinigung. Alle Rechte vorbehalten.</p>
+          <div className="footer-bottom-content">
+            <p>&copy; {currentYear} WOW WASH Reinigung. Alle Rechte vorbehalten.</p>
+            <div className="footer-legal-links">
+              <Link to="/impressum">Impressum</Link>
+              <span className="footer-divider">|</span>
+              <Link to="/agb">AGB</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
